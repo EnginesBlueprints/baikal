@@ -1,1 +1,180 @@
-{"software":{"name":"baikal","major":null,"minor":1,"release_level":"Release candidate","patch":null,"license_name":"gnu_general_public_license_v3","license_label":"GNU GENERAL PUBLIC LICENSE V3","license_sourceurl":"http://www.gnu.org/copyleft/gpl.html","full_title":"Baïkal Lightweight CalDAV+CardDAV server","short_title":"baikal","description":"\r\n\r\nBaïkal offers ubiquitous and synchronized access to your calendars and address books over CalDAV and CardDAV. Baïkal implements the current IETF recommendation drafts of these industry standards for centralized calendar and address book collections.\r\nBaïkal is compatible with iOS’ (iPad, iPhone, and iPod) and Mac OS X’s Calendar, Contacts, and Reminders apps; Android’s calendars and contacts apps like DAVdroid; Evolution for Linux; Mozilla Thunderbird with Lightning; Atmail; eM Client for Windows; and every other CalDAV and CardDAV capable application.","icon_url":"http://baikal-server.com/res/img/baikal-logos/matriochka.png","home_page_url":"http://baikal-server.com/","support_page_url":"","about":"","language":"php","framework":"apache_php","deployment_type":"web","web_root_directory":"html","first_run_url":"_Engines_Builder(http_protocol)://_Engines_Builder(fqdn)/admin/install/","publisher":"engines","blocking_worker_name":null,"required_memory":96,"recommended_memory":128,"http_protocol":"http_and_https","framework_port_overide":null,"custom_start_script":"","custom_install_script":"#!/bin/sh\r\ntouch /home/app/Specific/ENABLE_INSTALL;","custom_post_install_script":"#!/bin/sh\r\nrm /home/app/Specific/ENABLE_INSTALL;\r\n/home/engines/scripts/make_persistent.sh Specific/config.php\r\n/home/engines/scripts/make_persistent.sh Specific/config.system.php\r\n","service_configurations":[{"publisher_namespace":"EnginesSystem","type_path":"database/sql/mysql","variables":{"full_access":"false","name":"_Engines_Builder(engine_name)","database_host":"_Engines_System(mysql_host)","database_name":"_Engines_Builder(engine_name)","db_username":"_Engines_Builder(engine_name)","db_password":"_Engines_System(random(10))","db_flavor":"mysql2","collation":"utf8_general_ci"}},{"publisher_namespace":"EnginesSystem","type_path":"filesystem/local/filesystem","variables":{"user":"_Engines_Builder(data_uid)","group":"_Engines_Builder(data_gid)","service_name":"_Engines_Builder(engine_name)","volume_src":" ","permissions":"rw","engine_path":"persistant"}}],"persistent_directories":[],"replacement_strings":[],"persistent_files":[],"installed_packages":[{"name":"baikal-0.4.6.zip","source_url":"https://github.com/fruux/Baikal/releases/download/0.4.6/baikal-0.4.6.zip","destination":"./","extraction_command":"unzip ","path_to_extracted":"baikal"}],"system_packages":[],"workers":[],"ports":[],"external_repositories":[],"rake_tasks":[],"template_files":[],"file_write_permissions":[{"path":"Specific/","recursive":true},{"path":"/","recursive":false}],"custom_php_inis":[],"apache_htaccess_files":[],"apache_httpd_configurations":[],"modules":[],"variables":[],"component_sources":[],"component_path":"","extract_components":false,"installation_report_template":"Goto _Engines_Builder(http_protocol)://_Engines_Builder(fqdn)/admin/install/\r\nset timezone\r\nset admin password\r\nclick save\r\nConfiguring Database\r\nuse mysql\r\nMysql host _Engines_Environment(dbhost)\r\nDatabase Name _Engines_Environment(dbname)\r\nDatabase User _Engines_Environment(dbuser)\r\nDatabase Password _Engines_Environment(dbpasswd) \r\n\r\n\r\nOnce the initial configuration is complete please restart the engine from the applications page to complete the installation","continuous_deployment":false,"database_seed_file":"","actionators":{}}}
+{
+  "schema": {
+    "type": "app_blueprint",
+    "version": {
+      "major": 1,
+      "minor": 0
+    },
+    "origin": "Engines Developer Studio 1.0"
+  },
+  "metadata": {
+    "blueprint": {
+      "version": {
+        "major": 0,
+        "minor": 1,
+        "level": "rc",
+        "patch": 0
+      },
+      "timestamp": null
+    },
+    "software": {
+      "display": {
+        "title": "Baïkal Lightweight CalDAV+CardDAV server",
+        "label": "baikal",
+        "version": "",
+        "description": "\r\n\r\nBaïkal offers ubiquitous and synchronized access to your calendars and address books over CalDAV and CardDAV. Baïkal implements the current IETF recommendation drafts of these industry standards for centralized calendar and address book collections.\r\nBaïkal is compatible with iOS’ (iPad, iPhone, and iPod) and Mac OS X’s Calendar, Contacts, and Reminders apps; Android’s calendars and contacts apps like DAVdroid; Evolution for Linux; Mozilla Thunderbird with Lightning; Atmail; eM Client for Windows; and every other CalDAV and CardDAV capable application.",
+        "url": "http://baikal-server.com/"
+      },
+      "license": {
+        "label": "GNU GENERAL PUBLIC LICENSE V3",
+        "url": "http://www.gnu.org/copyleft/gpl.html"
+      }
+    }
+  },
+  "software": {
+    "base": {
+      "name": "baikal",
+      "framework": "apache_php",
+      "memory": {
+        "required": "96",
+        "recommended": "128"
+      },
+      "http_protocol": "http_and_https",
+      "framework_port_override": "",
+      "deployment_type": "web",
+      "web_root_directory": "html",
+      "continuous_deployment": false,
+      "install_form_comment": "",
+      "first_run_url": "_Engines_Builder(http_protocol)://_Engines_Builder(fqdn)/admin/install/",
+      "installation_report": "Goto _Engines_Builder(http_protocol)://_Engines_Builder(fqdn)/admin/install/\r\nset timezone\r\nset admin password\r\nclick save\r\nConfiguring Database\r\nuse mysql\r\nMysql host _Engines_Environment(dbhost)\r\nDatabase Name _Engines_Environment(dbname)\r\nDatabase User _Engines_Environment(dbuser)\r\nDatabase Password _Engines_Environment(dbpasswd) \r\n\r\n\r\nOnce the initial configuration is complete please restart the engine _Engines_Builder(engine_name) from the applications page to complete the installation"
+    },
+    "ports": [
+
+    ],
+    "scripts": {
+      "start": {
+        "language": "sh",
+        "content": ""
+      },
+      "install": {
+        "language": "sh",
+        "content": "#!/bin/sh\r\ntouch /home/app/Specific/ENABLE_INSTALL;"
+      },
+      "post_install": {
+        "language": "sh",
+        "content": "#!/bin/sh\r\nrm /home/app/Specific/ENABLE_INSTALL;\r\n/home/engines/scripts/make_persistent.sh Specific/config.php\r\n/home/engines/scripts/make_persistent.sh Specific/config.system.php\r\n"
+      },
+      "shutdown": {
+        "language": "sh",
+        "content": ""
+      }
+    },
+    "external_repositories": [
+
+    ],
+    "system_packages": [
+
+    ],
+    "installed_packages": [
+      {
+        "name": "baikal-0.4.6.zip",
+        "source_url": "https://github.com/fruux/Baikal/releases/download/0.4.6/baikal-0.4.6.zip",
+        "destination": "./",
+        "extraction_command": "unzip ",
+        "path_to_extracted": "baikal"
+      }
+    ],
+    "required_modules": [
+
+    ],
+    "service_configurations": [
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "database/sql/mysql",
+        "variables": {
+          "full_access": "false",
+          "name": "_Engines_Builder(engine_name)",
+          "database_host": "_Engines_System(mysql_host)",
+          "database_name": "_Engines_Builder(engine_name)",
+          "db_username": "_Engines_Builder(engine_name)",
+          "db_password": "_Engines_System(random(10))",
+          "db_flavor": "mysql2",
+          "collation": "utf8_general_ci"
+        }
+      },
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "filesystem/local/filesystem",
+        "variables": {
+          "user": "_Engines_Builder(data_uid)",
+          "group": "_Engines_Builder(data_gid)",
+          "service_name": "_Engines_Builder(engine_name)",
+          "volume_src": " ",
+          "permissions": "rw",
+          "engine_path": "persistant"
+        }
+      }
+    ],
+    "environment_variables": [
+
+    ],
+    "template_files": [
+
+    ],
+    "replacement_strings": [
+
+    ],
+    "database_seed": {
+      "language": "text",
+      "content": "",
+      "script": false
+    },
+    "file_write_permissions": [
+      {
+        "path": "Specific/",
+        "recursive": true
+      },
+      {
+        "path": "/",
+        "recursive": false
+      }
+    ],
+    "persistent_directories": [
+
+    ],
+    "persistent_files": [
+
+    ],
+    "components": {
+      "sources": [
+
+      ],
+      "path": "",
+      "extract": false
+    },
+    "workers": {
+      "blocking": "",
+      "commands": [
+
+      ]
+    },
+    "rake_tasks": [
+
+    ],
+    "custom_php_inis": [
+
+    ],
+    "apache_htaccess_files": [
+
+    ],
+    "apache_httpd_configurations": [
+
+    ],
+    "actionators": [
+
+    ],
+    "schedules": [
+
+    ]
+  }
+}
